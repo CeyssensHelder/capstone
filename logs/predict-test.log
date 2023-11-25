@@ -1,0 +1,4 @@
+unique_id,timestamp,country,y_pred,y_proba,target_date,model_version,runtime
+dddfa622-a443-425c-b7ba-3f352ba22cef,1700951838.9778833,test,[0],"[0.6, 0.4]",2018-01-05,0.1,00:00:02
+16e61948-f1a1-475c-ba0d-809551f3c55e,1700951838.9789996,test,[0],"[0.6, 0.4]",2018-01-05,0.1,00:00:02
+0ab976d2-a9ac-4357-983c-684f42997917,1700951888.3255508,netherlands,[378.95],None,2018-01-05,0.1,000:00:14

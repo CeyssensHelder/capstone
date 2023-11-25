@@ -48,14 +48,14 @@ def _model_train(df,tag,test=False):
                                                         shuffle=True, random_state=42)
     ## train a random forest model
     param_grid_rf = {
-    'rf__criterion': ['mse','mae'],
+    'rf__criterion': ['squared_error','absolute_error'],
     'rf__n_estimators': [10,15,20,25]
     }
 
     pipe_rf = Pipeline(steps=[('scaler', StandardScaler()),
                               ('rf', RandomForestRegressor())])
     
-    grid = GridSearchCV(pipe_rf, param_grid=param_grid_rf, cv=5, iid=False, n_jobs=-1)
+    grid = GridSearchCV(pipe_rf, param_grid=param_grid_rf, cv=5, n_jobs=-1)
     grid.fit(X_train, y_train)
     y_pred = grid.predict(X_test)
     eval_rmse =  round(np.sqrt(mean_squared_error(y_test,y_pred)))
@@ -115,9 +115,12 @@ def model_load(prefix='sl',data_dir=None,training=True):
     
     The prefix allows the loading of different models
     """
+    # set dir to data/cs-train
+    # csdir = os.path.join("..","data","cs-train")
+
 
     if not data_dir:
-        data_dir = os.path.join("..","data","cs-train")
+        data_dir = os.path.join("data","cs-train")
     
     models = [f for f in os.listdir(os.path.join(".","models")) if re.search("sl",f)]
 
@@ -148,7 +151,9 @@ def model_predict(country,year,month,day,all_models=None,test=False):
 
     ## load model if needed
     if not all_models:
+        print("... no model found, loading model")
         all_data,all_models = model_load(training=False)
+
     
     ## input checks
     if country not in all_models.keys():

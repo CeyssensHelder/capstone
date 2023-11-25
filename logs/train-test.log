@@ -1,0 +1,5 @@
+unique_id,timestamp,tag,period,rmse,model_version,model_version_note,runtime
+57facf32-1268-4ef9-a009-c1b35b447f79,1700951838.9712331,test,2018-01,{'rmse': 0.5},0.1,test model,00:00:01
+469a9b7b-7b96-426f-a745-6ff2a05dfbfd,1700951838.9718063,test,2018-01,{'rmse': 0.5},0.1,test model,00:00:01
+6853fbad-f3d5-493b-9778-30261291c9b6,1700951843.8248005,all,"('2017-11-29', '2019-05-30')",{'rmse': 24273},0.1,supervised learing model for time-series,000:00:04
+a16556e6-2e01-4e21-be3d-8ce2f73cefbc,1700951846.034132,united_kingdom,"('2017-12-01', '2019-05-29')",{'rmse': 30259},0.1,supervised learing model for time-series,000:00:02
